@@ -13,7 +13,7 @@ Slack translation bot
   `pip3 install googletrans`
 
 
-### Configure slack-transbot
+### Translation map
 
 + Slack-transbot supports M-N translation map:
 
