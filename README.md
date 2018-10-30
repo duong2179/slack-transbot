@@ -22,7 +22,7 @@ Slack translation bot
   channel_2 --> { trans_channel_1, trans_channel_2 }
 
 
-### Install & Obtain slack bot token
+### Install new slack bot & Obtain slack bot's token
 
 <img width="1101" alt="01" src="https://user-images.githubusercontent.com/16577855/47733617-f7389900-dcab-11e8-8ccb-6df698caf316.png">
 <img width="1101" alt="02" src="https://user-images.githubusercontent.com/16577855/47733619-f7d12f80-dcab-11e8-8e9e-d568fcdd7b81.png">
