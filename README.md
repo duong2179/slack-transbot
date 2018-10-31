@@ -2,6 +2,25 @@
 Slack translation bot
 
 
+### ToC
+
++ [Dependencies](#dependencies)
+
++ [Translation map](#translation-map)
+
++ [Install new slack bot & Obtain slack bot's token](#install-new-slack-bot--obtain-slack-bots-token)
+
++ [Create home channel for slack-transbot](#create-home-channel-for-slack-transbot)
+
++ [Find slack-transbot user ID](#find-slack-transbot-user-id)
+
++ [Start slack-transbot](#start-slack-transbot)
+
++ [Configure slack-transbot](#configure-slack-transbot)
+
++ [Test slack-transbot](#test-slack-transbot)
+
+
 ### Dependencies
 
 + Slack client library
@@ -82,11 +101,11 @@ In the home channel, click "View member list" -> Right-click on `transbot` -> Co
 
 + `@transbot help`: Say hello and provide you some help.
 
-+ `transbot list`: Show translation map.
++ `@transbot list`: Show translation map.
 
-+ `transbot add src:dst`: Add a pair of channels to translation map.
++ `@transbot add src:dst`: Add a pair of channels to translation map.
 
-+ `transbot rm src:dst`: Remove a pair of channels from translation map.
++ `@transbot rm src:dst`: Remove a pair of channels from translation map.
 
 <img width="1101" alt="15" src="https://user-images.githubusercontent.com/16577855/47733636-fa338980-dcab-11e8-9c62-284dacce0ae6.png">
 
