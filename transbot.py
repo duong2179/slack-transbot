@@ -361,7 +361,7 @@ if __name__ == """__main__""":
             break
         except Exception as ex:
             print("Exception: %s" % ex)
-            break
+            time.sleep(1.0)
 
     # save current settigns
     transbot.save_settings()
