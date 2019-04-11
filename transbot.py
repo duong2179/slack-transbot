@@ -59,6 +59,7 @@ def private_channels(sc):
         pass
     return {}
 
+
 def all_channels(sc):
     direct_channels, reversed_channels = {}, {}
     private_direct, private_reversed = private_channels(sc)
@@ -275,12 +276,15 @@ class TransClient:
                     or subtype == "bot_message"  # posted by a bot
                 ):
                     continue
+
                 # if the bot is mentioned in the message
-                if src_chan_id == self._home_id and org_msg.find(self._bot_tag) == 0:
+                if org_msg.find(self._bot_tag) == 0:
                     # refresh list of bosses
                     self.__refresh_bosses()
-                    # if the sender is not the bot's boss -> warn him
-                    if user not in self._boss_ids:
+
+                    # if the channel is not home OR
+                    # the sender is not the bot's boss -> warn him
+                    if src_chan_id != self._home_id or user not in self._boss_ids:
                         msg = (
                             "Sorry, You are not my boss. Please join %s first!"
                             % self._home_name
@@ -308,9 +312,7 @@ class TransClient:
                     transed_msg = transed_msg.strip()
                     transed_msg = normalize_tags(transed_msg)
                     dst_chan_names = self._trans_map[src_chan_name]
-                    dst_chan_ids = [
-                        self._direct_channels[x] for x in dst_chan_names
-                    ]
+                    dst_chan_ids = [self._direct_channels[x] for x in dst_chan_names]
                     msg = "_In *#%s*, <@%s> said:_\n" % (src_chan_name, user)
                     msg += ">>>" + transed_msg
                     self.__post_msg(msg, dst_chan_ids)
