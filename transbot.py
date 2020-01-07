@@ -71,6 +71,22 @@ def all_channels(sc):
     return direct_channels, reversed_channels
 
 
+def all_channels_x(sc):
+    try:
+        res = sc.api_call(
+            "users.conversations",
+            exclude_archived="true",
+            types="public_channel,private_channel",
+        )
+        if res["ok"]:
+            channels = {x["name"]: x["id"] for x in res["channels"]}
+            reversed_channels = {x["id"]: x["name"] for x in res["channels"]}
+            return channels, reversed_channels
+    except Exception:
+        pass
+    return {}
+
+
 def channel_members(sc, channel_id):
     try:
         res = sc.api_call("conversations.members", channel="%s" % channel_id)
@@ -116,7 +132,7 @@ class TransClient:
         return user_id in self._boss_ids
 
     def __refresh_channels(self):
-        self._direct_channels, self._reversed_channels = all_channels(self._sc)
+        self._direct_channels, self._reversed_channels = all_channels_x(self._sc)
 
     def __is_member_of(self, channel_name):
         if channel_name in self._direct_channels:
